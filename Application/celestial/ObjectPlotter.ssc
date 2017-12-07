@@ -1,0 +1,52 @@
+/*
+	Author: 				Jonathan Howell
+	Submission date: 	3rd Nov 2017
+	Student Number: 	17763141
+	
+	* To be used within the Stellarium scripting language
+	* Will track a known object frome "name"
+	* user sets initil datetime, number of steps and the length of each step (seconds)
+	* saved in the .Sellarium folder
+*/
+
+
+
+//User Variables
+name = "Rigil Kentaurus"
+date = "2017-10-24"
+startTime = "20:30:00"
+nSteps = 300
+stepSize = 1 // In seconds
+delay = 0.2	//Stellarium required. Do not change
+
+//Setting start time and date
+core.debug("Setting time. This will take ~" + nSteps * delay + " seconds" )
+core.setDate(date + "T" + startTime, "local")
+core.wait(1)
+
+//clean buffer
+core.resetOutput()
+
+//Iterate through a range of times by step seconds
+core.debug("Tracking ...")
+for (i=0; i<=nSteps; i++)
+{
+
+	// Get object in question
+	tar = core.getObjectInfo(name, true);
+	
+	date = core.getDate("local");
+	az = tar["azimuth"]
+	alt = tar["altitude"] 
+	core.output(date + " " + az + " " + alt);
+
+	core.setDate("+" + stepSize + " seconds")
+	core.wait(delay)
+}
+
+
+//Save output to a file
+output = name + "-path.txt"
+core.saveOutputAs(output)
+core.resetOutput()
+core.debug("Complete. Saved as " + output)

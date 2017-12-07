@@ -1,0 +1,45 @@
+Hardware:
+\Fireball tracking
+	* 2x BFLY-U3-23S6M-C monochrome video camera
+	* 1x Samyang 8mm f/3.5 UMC Fish-eye CS II lens
+	* 1x D47-PTU with RS-232 breakout cable
+
+\Celestial Tracking
+	* 1x BFLY-U3-23S6M-C monochrome video camera
+	* 1x Samyang 8mm f/3.5 UMC Fish-eye CS II lens
+	* 1x D47-PTU with RS-232 breakout cable
+
+\Equatorial Photography
+	* 1x Nikon D810 DSLR body
+	* 1x Sigma 85mm f/1.4 DG HSM Lens
+	* 1x D47-PTU with RS-232 breakout cable
+
+Installed Software:
+-- This does not include standard python libraries
+* Python						(2.7.12)
+* OpenCV 3.3.0-rc			(import cv2)
+* Python serial 3.3 		(import serial)
+* Py capture 2.11.121	(import PyCapture2)
+* npyscreen	4.10.5		(import npyscreen)
+* numpy 1.13.1				(import numpy)
+* Stellarium
+* Fly Capture 2.11.3.121
+
+Custom Classes:
+\Application
+	\packages
+		\guiComponents
+			winButtonSets.py
+			winForms.py
+		\opencvController
+			camera.py
+			cvWindowController.py
+			cvWindowObjects.py
+		\other
+			Utilities.py
+		\ptuSerial
+			PTUController.py
+			PTUkeyboad.py
+			PTUSerial.py
+			Transform.py
+

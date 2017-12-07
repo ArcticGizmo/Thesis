@@ -1,0 +1,34 @@
+This outlines the general functionality of the defined windows for gui.py
+
+winFormBase
+	* the base class for all of the forms
+	* allows external binding after instantiation for singleton objects such as PTU
+		and camera objects
+	* inherrited by all other menus
+
+MainMenu
+	* intro screen
+	* has button links to all other menus
+
+CameraInfo
+	* Displays camera information for both payload and wide angle lens
+	* Displays the PyCapture2 firmware version used for reading settings
+
+PayloadMenu
+	* Has a series of functions that can be applied to the PTU
+	* Any number of functions can be used concurrently
+	* Can be enabled or disabled by the user
+
+PTUDegMenu
+	* Allows the manual control of the PTU in degrees
+	* shows min an max values that can be set
+	* The display option illustrates where the payload is currently pointing and 
+		is only meant to be used as an aid
+
+WideMenu
+	* Has a series of functions that can be applied to the wide angle lens
+	* Any number of functions can be used concurrently
+	* Can be enabled or disabled by the user
+	* Some of the functions interact with the PTU and as a result the user should not try and
+		use PTUDegMenu while these are actively operating the PTU
+	* Main function allows the user to click a point on the screen and the PTU points at it
